@@ -7,16 +7,36 @@ var numbers = "0123456789";
 var special = "! #$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 
 function generatePassword (){
-  var userInput = window.prompt("Enter desired password length");
+  var input = window.prompt("Enter desired password length.");
   var passwordLength = parseInt(userInput);
-  if (passwordLength) {
-    return "Unable to generate password due to minimum criteria not being met"
+
+  if (!passwordLength || passwordLength <8) {
+    alert("Unable to generate password due to minimum criteria not being met.");
+    return;
   }}
 
-  var userSelections = Math.floor(Math.random() * passwordLength.length);
-  var computerRandomChoice = userInput[index];
+  var userSelections = lowercase;
+  var includeUppercase = window.confirm("Include uppercase letters?");
+  var includeLowercase = window.confirm("Include lowercase letters?");
+  var includeSpecial = window.confirm("Include special characters?");
 
-  window.alert("The computer chose " + computerRandomChoice);
+  if (includeUppercase) {
+    userSelections + uppercase;
+  }
+  if (includeUppercase) {
+    userSelections + lowercase;
+  }
+  if (includeSpecial) {
+    userSelections + special;
+  }
+
+  var generatedPassword = ""
+    var randomIndex = Math.floor(Math.random() *userSelections.length);
+    for (var i=0; i< passwordLength; i++) {
+      generatePassword += userSelections.charAT(randomIndex);
+    }
+
+  window.alert("The computer chose " + generatedPassword);
 
 
 // Write password to the #password input
