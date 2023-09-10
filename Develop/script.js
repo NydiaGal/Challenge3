@@ -31,8 +31,8 @@ function generatePassword (){
   }
 
   var generatedPassword = ""
-    var randomIndex = Math.floor(Math.random() *userSelections.length);
-    for (var i=0; i< passwordLength; i++) {
+  for (var i=0; i< passwordLength; i++) {
+      var randomIndex = Math.floor(Math.random() *userSelections.length);
       generatedPassword += userSelections.charAt(randomIndex);
   }
 
