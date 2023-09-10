@@ -8,35 +8,38 @@ var special = "! #$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 
 function generatePassword (){
   var input = window.prompt("Enter desired password length.");
-  var passwordLength = parseInt(userInput);
-
-  if (!passwordLength || passwordLength <8) {
+  var passwordLength = parseInt(input);
+  
+  if (!passwordLength || passwordLength < 8 || passwordLength > 128) {
     alert("Unable to generate password due to minimum criteria not being met.");
     return;
-  }}
+  }
 
   var userSelections = lowercase;
-  var includeUppercase = window.confirm("Include uppercase letters?");
-  var includeLowercase = window.confirm("Include lowercase letters?");
-  var includeSpecial = window.confirm("Include special characters?");
+  var includeuppercase = window.confirm("Include uppercase letters?");
+  var includelowercase = window.confirm("Include lowercase letters?");
+  var includespecial = window.confirm("Include special characters?");
 
-  if (includeUppercase) {
-    userSelections + uppercase;
+  if (includeuppercase) {
+    userSelections += uppercase;
   }
-  if (includeUppercase) {
-    userSelections + lowercase;
+  if (includelowercase) {
+    userSelections += lowercase;
   }
-  if (includeSpecial) {
-    userSelections + special;
+  if (includespecial) {
+    userSelections += special;
   }
 
   var generatedPassword = ""
     var randomIndex = Math.floor(Math.random() *userSelections.length);
     for (var i=0; i< passwordLength; i++) {
-      generatePassword += userSelections.charAT(randomIndex);
-    }
+      generatedPassword += userSelections.charAt(randomIndex);
+  }
 
-  window.alert("The computer chose " + generatedPassword);
+  window.alert("The computer randomly chose " + generatedPassword);
+
+  return generatedPassword;
+}
 
 
 // Write password to the #password input
@@ -45,7 +48,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
 
-  passwordText.value = password;
+passwordText.value = password;
 
 }
 
